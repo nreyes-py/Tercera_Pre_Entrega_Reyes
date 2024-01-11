@@ -1,0 +1,36 @@
+{% extends  "AppCuentos/base.html"%}
+
+{% block titulo %}
+  Explora Nuestros Cuentos
+{% endblock %}
+
+{% block contenido %}
+{% load static %}
+  <!-- Listado de cuentos -->
+  <div class="container mt-4">
+    <div class="row">
+      {% for cuento in cuentos %}
+        <div class="col-md-4 mb-3">
+          <div class="card h-100">
+            <img src="{% static 'AppCuentos/img/cuento-thumbnail.jpg' %}" class="card-img-top" alt="Imagen del cuento">
+            <div class="card-body">
+              <h5 class="card-title">{{ cuento.titulo }}</h5>
+              <p class="card-text">{{ cuento.contenido|truncatewords:20 }}</p>
+              <footer class="blockquote-footer">
+                Escrito por: <cite title="Source Title">{{ cuento.autor }}</cite>
+              </footer>
+            </div>
+            <div class="card-footer">
+              <a href="{% url 'DetalleCuento' cuento.id %}" class="btn btn-primary">Leer más</a>
+            </div>
+          </div>
+        </div>
+      {% empty %}
+        <div class="col">
+          <p class="text-center">No hay cuentos disponibles.</p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}
+

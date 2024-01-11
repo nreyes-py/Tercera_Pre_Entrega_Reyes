@@ -1,0 +1,15 @@
+{% extends 'AppCuentos/base.html' %}
+
+{% extends 'base.html' %}
+
+{% block titulo %}
+  Tu Perfil - CuentoVisión
+{% endblock %}
+
+{% block contenido %}
+  <h2>Bienvenido, {{ usuario.nombre }}</h2>
+  <p>Este es tu espacio personal en CuentoVisión. Aquí puedes gestionar tu cuenta, tus cuentos y ajustes de perfil.</p>
+  <!-- Agregar detalles del perfil y opciones para editar -->
+  <a href="{% url 'editar_perfil' %}">Editar Perfil</a>
+  <a href="{% url 'mis_cuentos' %}">Mis Cuentos</a>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'AppCuentos/base.html' %}
+
+{% block titulo %}
+<div class="text-center my-4">
+  <h1>Bienvenidos a CuentoVisión</h1>
+  <h2 class="text-muted">Donde cada cuento cuenta</h2>
+</div>
+{% endblock %}
+
+{% block subtitulo %}
+<div class="text-center my-4">
+  <p class="lead">Explora cuentos infinitos, escribe tu historia y comparte tu imaginación con el mundo.</p>
+</div>
+{% endblock %}
+
+{% block contenido %}
+<div class="container my-4">
+  <p>Descubre una comunidad vibrante de narradores y amantes de las historias. Ya sea que prefieras sumergirte en cuentos de aventuras, relatos de fantasía o historias de vida reales, CuentoVisión es tu puerta de entrada a un universo de imaginación sin límites.</p>
+  <div class="text-center mt-4">
+    <a href="{% url 'New' %}" class="btn btn-primary">Escribe tu propio cuento</a>
+    <a href="{% url 'MostrarCuentos' %}" class="btn btn-secondary">Explora cuentos</a>
+  </div>
+</div>
+{% endblock %}

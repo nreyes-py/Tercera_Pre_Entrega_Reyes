@@ -1,0 +1,17 @@
+{% extends 'AppCuentos/base.html' %}
+
+{% block titulo %}
+  Detalle de Historia - {{ historia.titulo }}
+{% endblock %}
+
+{% block contenido %}
+  <div class="container my-4">
+    <h2>{{ historia.titulo }}</h2>
+    <p><strong>Autor:</strong> {{ historia.autor }}</p>
+    <p><strong>Fecha de Creación:</strong> {{ historia.fecha_creacion|date:"d/m/Y" }}</p>
+    <p><strong>Puntuación:</strong> {{ historia.puntuacion }}</p>
+    <p>{{ historia.contenido }}</p>
+    <a href="{% url 'actualizar_historia' historia.id %}" class="btn btn-primary">Editar</a>
+    <a href="{% url 'eliminar_historia' historia.id %}" class="btn btn-danger">Eliminar</a>
+  </div>
+{% endblock %}

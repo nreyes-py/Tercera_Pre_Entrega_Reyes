@@ -1,0 +1,29 @@
+{% extends 'AppCuentos/base.html' %}
+
+{% block titulo %}
+  Crear/Editar Historia - CuentoVisión
+{% endblock %}
+
+{% block contenido %}
+  <div class="container my-4">
+    <h2 class="text-center mb-4">{% if object %}Editar Historia{% else %}Crear Nueva Historia{% endif %}</h2>
+    <body>
+        <form action="" method="post"> 
+           
+           {% csrf_token %} 
+         
+           {{ form.as_p}}
+           
+           <input type="submit" , value="Enviar"> 
+           
+         
+          </form>
+        
+     </body>
+    <a href="{% url 'lista_historias' %}" class="btn btn-secondary">Cancelar</a>
+   
+  </div>
+{% endblock %}
+
+
+ 

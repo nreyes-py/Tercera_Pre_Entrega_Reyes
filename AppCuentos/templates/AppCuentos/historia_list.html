@@ -1,0 +1,44 @@
+{% extends 'AppCuentos/base.html' %}
+
+{% block titulo %}
+  Listado de Historias - CuentoVisión
+{% endblock %}
+
+{% block contenido %}
+  <div class="container my-4">
+    <h2 class="text-center mb-4">Historias</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Título</th>
+          <th>Autor</th>
+          <th>Fecha de Creación</th>
+          <th>Puntuación</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for historia in object_list %}
+          <tr>
+            <td>{{ historia.titulo }}</td>
+            <td>{{ historia.autor }}</td>
+            <td>{{ historia.fecha_creacion|date:"d/m/Y" }}</td>
+            <td>{{ historia.puntuacion }}</td>
+            <td>
+              <a href="{% url 'detalle_historia' historia.id %}" class="btn btn-info">Ver</a>
+              <a href="{% url 'actualizar_historia' historia.id %}" class="btn btn-primary">Editar</a>
+              <a href="{% url 'eliminar_historia' historia.id %}" class="btn btn-danger">Eliminar</a>
+            </td>
+          </tr>
+        {% empty %}
+          <tr>
+            <td colspan="5" class="text-center">No hay historias disponibles.</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <div class="text-center">
+      <a href="{% url 'crear_historia' %}" class="btn btn-success">Agregar un cuento</a>
+    </div>
+  </div>
+{% endblock %}

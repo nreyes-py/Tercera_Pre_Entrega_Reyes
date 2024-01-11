@@ -1,0 +1,22 @@
+{% extends 'AppCuentos/base.html' %}
+
+{% block titulo %}
+  Confirmar Eliminación de Historia
+{% endblock %}
+
+{% block contenido %}
+<div class="container mt-5">
+  <h2 class="text-center mb-4">¿Estás seguro que deseas eliminar esta historia?</h2>
+  <p class="text-center">Esta acción no se puede deshacer.</p>
+  
+  <div class="row justify-content-center">
+    <div class="col-md-4 text-center">
+      <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Eliminar</button>
+        <a href="{% url 'lista_historias' %}" class="btn btn-secondary">Cancelar</a>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

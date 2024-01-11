@@ -1,0 +1,30 @@
+{% extends 'AppCuentos/base.html' %}
+
+{% block titulo %}
+  Mis Cuentos - CuentoVisión
+{% endblock %}
+
+{% block contenido %}
+  <div class="container">
+    <h2>Eliminar cuentos</h2>
+    <p>Aquí puedes eliminar tu cuentoos.</p>
+    
+    {% if cuentos %}
+      <div class="cuentos-grid">
+        {% for cuento in cuentos %}
+          <div class="cuento-card">
+            <h3>{{ cuento.titulo }}</h3>
+            <p class="resumen-cuento">{{ cuento.contenido|truncatewords:30 }}</p>
+            <a href="{% url 'BorrarCuento' cuento.titulo %}" class="editar-cuento">Eliminar</a>
+            <a href="#" class="editar-cuento">Editar</a>
+           
+          </div>
+        {% endfor %}
+        <a href="{% url 'AgregarCuento' %}" class="Agregar-cuento">Agregar</a>
+     
+      </div>
+    {% else %}
+      <p>Aún no has escrito ningún cuento. ¿Qué tal si comienzas hoy?</p>
+    {% endif %}
+  </div>
+{% endblock %}
